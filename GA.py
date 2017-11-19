@@ -4,8 +4,8 @@ import sys
 from termcolor import colored
 
 def printUsage():
-	print("Usage: GA.py <population_size> <generations> <selection_rate> "
-	      "<mutation_rate> <restart_threshold>")
+	print("Usage: GA.py <population_size> <generations> <parents> "
+	      "<mutation_rate> <restart_threshold> <board_size>")
 
 class Board:
 	size = 0
@@ -148,13 +148,13 @@ if __name__ == "__main__":
 		printUsage()
 	else:
 		args = sys.argv[1:]
-		board_size = int(args[5])
-		Board.size = board_size
 		popsize = int(args[0])
 		generations = int(args[1])
 		selection = int(args[2])
 		mutation = float(args[3])
 		restart = float(args[4])
+		board_size = int(args[5])
+		Board.size = board_size
 		ga = GeneticAlgorithm(popsize, generations, selection, mutation,
 		                      restart, True)
 		ga.runGA()
